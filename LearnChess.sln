@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Abstractions", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Application.UnitTests", "LearnChess.Application.UnitTests\LearnChess.Application.UnitTests.csproj", "{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Web.IntegrationTests", "LearnChess.Web.IntegrationTests\LearnChess.Web.IntegrationTests.csproj", "{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -4,7 +4,7 @@ using LearnChess.Application.Domain.Moves;
 
 namespace LearnChess.Application.Domain
 {
-    internal class ChessPieceCollection
+    public class ChessPieceCollection
     {
         private readonly IReadOnlyDictionary<ChessPieceKind, ChessPiece> pieceDefinitions
             = new Dictionary<ChessPieceKind, ChessPiece>
@@ -18,7 +18,7 @@ namespace LearnChess.Application.Domain
                     )
             };
 
-        public ChessPiece GetChessPiece(ChessPieceKind chessPieceKind)
+        internal ChessPiece GetChessPiece(ChessPieceKind chessPieceKind)
         {
             return pieceDefinitions.TryGetValue(chessPieceKind, out var chessPiece)
                 ? chessPiece
@@ -26,7 +26,7 @@ namespace LearnChess.Application.Domain
                     $"No piece definition found for the following piece kind: {chessPieceKind}");
         }
 
-        public IEnumerable<ChessPieceKind> GetAvailableChessPieces()
+        internal IEnumerable<ChessPieceKind> GetAvailableChessPieces()
         {
             return pieceDefinitions.Keys;
         }

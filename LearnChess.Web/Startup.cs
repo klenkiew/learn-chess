@@ -1,6 +1,7 @@
+using LearnChess.Application.Domain;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +23,9 @@ namespace LearnChess.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
+
+            services.AddSingleton<ChessPieceCollection>();
+            services.AddMediatR(typeof(ChessPieceKind).Assembly);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
