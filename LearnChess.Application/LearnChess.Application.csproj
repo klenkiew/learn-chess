@@ -5,11 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Handlers" />
+      <ProjectReference Include="..\LearnChess.Abstractions\LearnChess.Abstractions.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LearnChess.Abstractions\LearnChess.Abstractions.csproj" />
+      <PackageReference Include="MediatR" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

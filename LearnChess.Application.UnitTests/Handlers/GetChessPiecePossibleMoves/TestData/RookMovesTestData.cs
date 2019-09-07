@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using LearnChess.Application.Domain;
+using LearnChess.Application.UnitTests.Handlers.GetChessPiecePossibleMoves.Helpers;
 using LearnChess.Application.UnitTests.Helpers;
 using NUnit.Framework;
 using static LearnChess.Application.UnitTests.Helpers.ChessboardFieldState;
 
-namespace LearnChess.Application.UnitTests.Domain.TestData
+namespace LearnChess.Application.UnitTests.Handlers.GetChessPiecePossibleMoves.TestData
 {
     internal class RookMovesTestData
     {
@@ -17,7 +18,7 @@ namespace LearnChess.Application.UnitTests.Domain.TestData
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
-                    {_, _, _, _, T, _, _, _},
+                    {_, _, _, _, C, _, _, _},
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
@@ -25,14 +26,14 @@ namespace LearnChess.Application.UnitTests.Domain.TestData
                 })
                 .Expect(new Chessboard
                 {
-                    {_, _, _, _, P, _, _, _},
-                    {_, _, _, _, P, _, _, _},
-                    {_, _, _, _, P, _, _, _},
-                    {P, P, P, P, T, P, P, P},
-                    {_, _, _, _, P, _, _, _},
-                    {_, _, _, _, P, _, _, _},
-                    {_, _, _, _, P, _, _, _},
-                    {_, _, _, _, P, _, _, _}
+                    {_, _, _, _, A, _, _, _},
+                    {_, _, _, _, A, _, _, _},
+                    {_, _, _, _, A, _, _, _},
+                    {A, A, A, A, C, A, A, A},
+                    {_, _, _, _, A, _, _, _},
+                    {_, _, _, _, A, _, _, _},
+                    {_, _, _, _, A, _, _, _},
+                    {_, _, _, _, A, _, _, _}
                 });
             
             yield return WithInitialChessboardState(new Chessboard 
@@ -44,18 +45,18 @@ namespace LearnChess.Application.UnitTests.Domain.TestData
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
                     {_, _, _, _, _, _, _, _},
-                    {_, _, _, _, _, _, _, T}
+                    {_, _, _, _, _, _, _, C}
                 })
                 .Expect(new Chessboard
                 {
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {_, _, _, _, _, _, _, P},
-                    {P, P, P, P, P, P, P, T}
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {_, _, _, _, _, _, _, A},
+                    {A, A, A, A, A, A, A, C}
                 });
         }
 

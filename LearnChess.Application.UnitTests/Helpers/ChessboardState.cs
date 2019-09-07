@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using LearnChess.Application.Domain;
+using LearnChess.Application.Handlers;
 using static LearnChess.Application.UnitTests.Helpers.ChessboardFieldState;
 
 namespace LearnChess.Application.UnitTests.Helpers
@@ -34,24 +33,32 @@ namespace LearnChess.Application.UnitTests.Helpers
             }
         }
 
-        public ChessboardPosition GetCurrentPosition()
+        public ChessboardPositionDto GetCurrentPosition()
+        {
+            return FindChessboardPosition(chessboardFieldState: C);
+        }
+        
+        public ChessboardPositionDto GetTargetPosition()
+        {
+            return FindChessboardPosition(chessboardFieldState: T);
+        }
+
+        private ChessboardPositionDto FindChessboardPosition(ChessboardFieldState chessboardFieldState)
         {
             for (var i = 0; i < fields.Length; i++)
             {
                 for (var j = 0; j < fields[i].Length; j++)
                 {
-                    if (fields[i][j] == T)
-                        return new ChessboardPosition(j + 1, i + 1);
+                    if (fields[i][j] == chessboardFieldState)
+                        return new ChessboardPositionDto(j + 1, i + 1);
                 }
             }
-            throw new Exception("No current position on this chessboard");
+            throw new Exception($"No position with state {chessboardFieldState} on this chessboard");
         }
-
-        public static ChessboardState CreateFromMoves(ChessboardPosition currentPosition, IEnumerable<ChessMove> moves)
+        
+        public static ChessboardState CreateFromMoves(
+            ChessboardPositionDto currentPosition, IEnumerable<ChessboardPositionDto> targetPositions)
         {
-            if (moves.Any(m => !Equals(m.From, currentPosition)))
-                throw new Exception("Invalid move from current position");
-                
             var chessboard = new[]
             {
                 new[] { _, _, _, _, _, _, _, _},
@@ -63,10 +70,10 @@ namespace LearnChess.Application.UnitTests.Helpers
                 new[] { _, _, _, _, _, _, _, _},
                 new[] { _, _, _, _, _, _, _, _}
             };
-            chessboard[currentPosition.Y - 1][currentPosition.X - 1] = T;
+            chessboard[currentPosition.Y - 1][currentPosition.X - 1] = C;
             
-            foreach (var chessMove in moves) 
-                chessboard[chessMove.To.Y - 1][chessMove.To.X - 1] = P;
+            foreach (var targetPosition in targetPositions) 
+                chessboard[targetPosition.Y - 1][targetPosition.X - 1] = A;
             return new ChessboardState(chessboard);
         }
         
@@ -104,7 +111,8 @@ namespace LearnChess.Application.UnitTests.Helpers
     public enum ChessboardFieldState
     {
         _, // a free field
-        T, // a currently taken field
-        P // possible - the piece can be moved to this position
+        C, // a currently taken field
+        A, // allowed - the piece can be moved to this position
+        T, // target position
     }
 }

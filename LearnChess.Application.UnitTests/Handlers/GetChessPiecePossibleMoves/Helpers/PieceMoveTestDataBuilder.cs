@@ -1,7 +1,8 @@
 using LearnChess.Application.Domain;
+using LearnChess.Application.UnitTests.Helpers;
 using NUnit.Framework;
 
-namespace LearnChess.Application.UnitTests.Helpers
+namespace LearnChess.Application.UnitTests.Handlers.GetChessPiecePossibleMoves.Helpers
 {
     internal interface IInitialChessboardStateStep
     {

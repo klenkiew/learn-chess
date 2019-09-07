@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LearnChess.Application.Domain
 {
@@ -14,6 +15,11 @@ namespace LearnChess.Application.Domain
         public IEnumerable<ChessMove> GetPossibleMoves(ChessboardPosition currentPosition)
         {
             return pieceAllowedMoves.GetPossibleMoves(currentPosition);
+        }
+        
+        public bool IsMoveAllowed(ChessboardPosition currentPosition, ChessboardPosition targetPosition)
+        {
+            return GetPossibleMoves(currentPosition).Any(move => move.To.Equals(targetPosition));
         }
     }
 }
