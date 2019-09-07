@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Handlers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LearnChess.Abstractions\LearnChess.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
