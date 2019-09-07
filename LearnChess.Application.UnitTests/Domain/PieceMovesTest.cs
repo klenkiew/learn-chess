@@ -12,7 +12,7 @@ namespace LearnChess.Application.UnitTests.Domain
         [TestCaseSource(typeof(PieceMovesData), nameof(PieceMovesData.TestCases))]
         public ChessboardState TestPieceMoves(ChessPieceKind chessPieceKind, ChessboardState initialState)
         {
-            var chessPiece = new ChessPieceFactory().CreateChessPiece(chessPieceKind);
+            var chessPiece = new ChessPieceCollection().GetChessPiece(chessPieceKind);
             var currentPosition = initialState.GetCurrentPosition();
             return ChessboardState.CreateFromMoves(currentPosition, chessPiece.GetPossibleMoves(currentPosition));
         }

@@ -1,20 +1,19 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LearnChess.Application.Domain
 {
     internal class ChessPiece
     {
-        private readonly ICollection<IChessMoveTypeSpecification> pieceAllowedMoveTypes;
+        private readonly IChessMoveTypeSpecification pieceAllowedMoves;
 
-        public ChessPiece(ICollection<IChessMoveTypeSpecification> pieceAllowedMoveTypes)
+        public ChessPiece(IChessMoveTypeSpecification pieceAllowedMoves)
         {
-            this.pieceAllowedMoveTypes = pieceAllowedMoveTypes;
+            this.pieceAllowedMoves = pieceAllowedMoves;
         }
 
         public IEnumerable<ChessMove> GetPossibleMoves(ChessboardPosition currentPosition)
         {
-            return pieceAllowedMoveTypes.SelectMany(moveType => moveType.GetPossibleMoves(currentPosition)).Distinct();
+            return pieceAllowedMoves.GetPossibleMoves(currentPosition);
         }
     }
 }
