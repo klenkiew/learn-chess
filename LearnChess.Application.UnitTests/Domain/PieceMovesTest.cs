@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using LearnChess.Application.Domain;
+using LearnChess.Application.UnitTests.Domain.TestData;
 using LearnChess.Application.UnitTests.Helpers;
 using NUnit.Framework;
 
@@ -21,7 +22,10 @@ namespace LearnChess.Application.UnitTests.Domain
     {
         public static IEnumerable<TestCaseData> TestCases()
         {
-            return Concat<TestCaseData>();
+            return Concat(
+                KnightMovesTestData.GetKnightMovesTestData(),
+                QueenMovesTestData.GetQueenMovesTestData(),
+                RookMovesTestData.GetRookMovesTestData());
         }
 
         private static IEnumerable<T> Concat<T>(params IEnumerable<T>[] lists)
