@@ -1,0 +1,13 @@
+:host {
+  min-width: 10rem;
+}
+
+ul > li {
+  > i {
+    font-size: 2rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

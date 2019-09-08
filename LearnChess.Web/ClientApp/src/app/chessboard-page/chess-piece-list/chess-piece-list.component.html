@@ -1,0 +1,9 @@
+<div>
+  Dostępne figury:
+</div>
+<ul class="list-group">
+  <li *ngFor="let chessPiece of chessPieces" class="list-group-item list-group-item-action"
+      [class.active]="selectedChessPiece === chessPiece" (click)="onChessPieceClick(chessPiece)">
+    <i [innerHTML]="chessPiece.unicode"></i> {{chessPiece.label}}
+  </li>
+</ul>

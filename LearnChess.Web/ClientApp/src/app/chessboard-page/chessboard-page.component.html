@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="content">
+    <app-chessboard [selectedPiece]="selectedChessPiece" [putChessPiece]="putChessPiece" (fieldClick)="onFieldClick($event)">
+    </app-chessboard>
+    <app-chess-piece-list [chessPieces]="chessPieces" [(selectedChessPiece)]="selectedChessPiece">
+    </app-chess-piece-list>
+  </div>
+</div>

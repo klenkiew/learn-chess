@@ -1,0 +1,4 @@
+<div [class]="field.type">
+  <i class="hover-visible" *ngIf="hoverContent" [innerHTML]="hoverContent"></i>
+  <i [class.hover-fade]="hoverContent != undefined" *ngIf="content" [innerHTML]="content"></i>
+</div>
