@@ -4,6 +4,9 @@ namespace LearnChess.Application.Domain
     {
         Knight,
         Queen,
-        Rook
+        Rook,
+        King,
+        Bishop,
+        Pawn
     }
 }

@@ -1,6 +1,7 @@
-<div>
+<div class="label">
   Dostępne figury:
 </div>
+
 <ul class="list-group">
   <li *ngFor="let chessPiece of chessPieces" class="list-group-item list-group-item-action"
       [class.active]="selectedChessPiece === chessPiece" (click)="onChessPieceClick(chessPiece)">

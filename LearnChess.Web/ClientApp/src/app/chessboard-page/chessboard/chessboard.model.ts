@@ -1,6 +1,10 @@
+import {ChessPiece} from "../chess-piece.model";
+
 export class Chessboard {
 
   readonly rows: ChessboardRow[];
+  selectedChessPiece: ChessPiece | undefined;
+  placedChessPiece: PlacedChessPiece | undefined;
 
   constructor() {
     this.rows = [];
@@ -31,4 +35,21 @@ export class ChessboardField {
   constructor(type: "dark" | "light") {
     this.type = type;
   }
+}
+
+export class FieldPosition {
+
+  constructor(readonly row: number, readonly column: number) {
+  }
+
+  sameAs(other: FieldPosition): boolean {
+    return this.row === other.row && this.column === other.column;
+  }
+}
+
+export interface PlacedChessPiece {
+  chessPiece: ChessPiece;
+  position: FieldPosition
+  possibleMoves?: FieldPosition[];
+  canMove?: boolean;
 }

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Chessboard} from "./chessboard.model";
-import {ChessPiece} from "../chess-piece.model";
+import {Chessboard, FieldPosition} from "./chessboard.model";
 
 @Component({
   selector: 'app-chessboard',
@@ -10,15 +9,11 @@ import {ChessPiece} from "../chess-piece.model";
 export class ChessboardComponent implements OnInit {
 
   @Input()
-  selectedPiece: ChessPiece;
-
-  @Input()
-  putChessPiece: ChessPiece & FieldPosition;
+  chessboard: Chessboard = new Chessboard();
 
   @Output()
   fieldClick = new EventEmitter<FieldPosition>();
 
-  chessboard: Chessboard = new Chessboard();
 
   constructor() { }
 
@@ -26,11 +21,12 @@ export class ChessboardComponent implements OnInit {
   }
 
   onChessboardFieldClick(row: number, column: number) {
-    this.fieldClick.emit({ row, column });
+    this.fieldClick.emit(new FieldPosition(row, column));
   }
-}
 
-export interface FieldPosition {
-  row: number;
-  column: number;
+  isFieldActive(row: number, column: number): boolean | undefined{
+    const placedChessPiece = this.chessboard.placedChessPiece;
+    return placedChessPiece != undefined && placedChessPiece.canMove && placedChessPiece.possibleMoves != undefined
+      && placedChessPiece.possibleMoves.filter(m => m.row === row && m.column === column).length > 0;
+  }
 }

@@ -1,8 +1,17 @@
 <div class="container">
-  <div class="content">
-    <app-chessboard [selectedPiece]="selectedChessPiece" [putChessPiece]="putChessPiece" (fieldClick)="onFieldClick($event)">
-    </app-chessboard>
-    <app-chess-piece-list [chessPieces]="chessPieces" [(selectedChessPiece)]="selectedChessPiece">
-    </app-chess-piece-list>
+  <div class="content row">
+    <div class="chessboard-container col-sm-12 col-md-9" >
+      <app-chessboard [chessboard]="chessboard" (fieldClick)="onFieldClick($event)">
+      </app-chessboard>
+      <div *ngIf="loading" class="spinner-container"><div class="spinner-border loader"></div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3" style="padding-right: 0;">
+      <app-chess-piece-list [chessPieces]="chessPieces" [(selectedChessPiece)]="chessboard.selectedChessPiece">
+      </app-chess-piece-list>
+      <div [hidden]="!displayError" class="alert alert-danger">
+        Nieprawidłowy ruch.
+      </div>
+    </div>
   </div>
 </div>

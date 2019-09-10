@@ -1,3 +1,7 @@
-div > div {
-  display: inline-block;
+div {
+  white-space: nowrap;
+
+  > div {
+    display: inline-block;
+  }
 }

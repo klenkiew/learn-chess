@@ -1,9 +1,11 @@
 <div>
-  <div *ngFor="let row of chessboard.rows; let row = index">
+  <div *ngFor="let row of chessboard.rows; let rowIndex = index">
     <app-chessboard-field *ngFor="let field of row.fields; let column = index" [field]="field"
-        [hoverContent]="selectedPiece?.unicode"
-        [content]="putChessPiece?.row === row && putChessPiece?.column === column ? putChessPiece.unicode : undefined"
-        (click)="onChessboardFieldClick(row, column)">
+        [hoverContent]="chessboard.selectedChessPiece?.unicode"
+        [content]="chessboard.placedChessPiece?.position?.row === rowIndex && chessboard.placedChessPiece?.position?.column === column
+            ? chessboard.placedChessPiece?.chessPiece?.unicode : undefined"
+        [active]="isFieldActive(rowIndex, column)"
+        (click)="onChessboardFieldClick(rowIndex, column)">
     </app-chessboard-field>
   </div>
 </div>

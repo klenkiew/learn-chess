@@ -30,12 +30,17 @@
   }
 
   &.dark {
-    background-color: black;
-    color: white;
+    background-color: #844801;
+    color: black;
   }
 
   &.light {
     background-color: #dcdcdd;
     color: black;
+  }
+
+  &.active {
+    //background-color: #6c8aff;
+    background-color: #4c5eb2;
   }
 }

@@ -30,7 +30,7 @@ namespace LearnChess.Application.Domain
 
         private static bool IsValidPosition(int index)
         {
-            return index >= 1 && index <= 8;
+            return index >= 0 && index <= 7;
         }
 
         public ChessboardPosition MovedBy(PositionChange positionChange)

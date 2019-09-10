@@ -1,8 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 1400px;
+}
+
 .content {
   display: flex;
   padding: 2rem;
+  margin: 0 auto;
+}
 
-  > * {
-    margin-left: 2rem;
-  }
+.loader {
+  width: 100%;
+  height: 100%;
+  border-width: 0.5rem;
+}
+
+.spinner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: #6c8aff;
+  opacity: 0.4;
+  padding: 2rem;
+}
+
+.chessboard-container {
+  position: relative;
+  padding-right: 1rem;
+}
+
+.alert {
+  margin-top: 2rem;
 }

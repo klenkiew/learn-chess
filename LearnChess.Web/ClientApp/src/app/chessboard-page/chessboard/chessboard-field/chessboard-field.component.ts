@@ -17,6 +17,9 @@ export class ChessboardFieldComponent implements OnInit {
   @Input()
   content: string | undefined;
 
+  @Input()
+  active: boolean | undefined;
+
   constructor() { }
 
   ngOnInit() {
