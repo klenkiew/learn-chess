@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using LearnChess.Abstractions.Domain.Exceptions;
 using LearnChess.Application.Domain.Moves;
+using LearnChess.Application.Exceptions;
 
 namespace LearnChess.Application.Domain
 {

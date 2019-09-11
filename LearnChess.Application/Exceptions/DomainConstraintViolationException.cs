@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace LearnChess.Abstractions.Domain.Exceptions
+namespace LearnChess.Application.Exceptions
 {
     public class DomainConstraintViolationException : Exception
     {

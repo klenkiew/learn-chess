@@ -1,4 +1,4 @@
-using LearnChess.Abstractions.Domain.Exceptions;
+using LearnChess.Application.Exceptions;
 
 namespace LearnChess.Application.Domain
 {

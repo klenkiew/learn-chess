@@ -1,14 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Web", "LearnChess.Web\LearnChess.Web.csproj", "{A4DAAFE4-B059-45D0-88B9-94BE3A3FA93F}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnChess.Web", "LearnChess.Web\LearnChess.Web.csproj", "{A4DAAFE4-B059-45D0-88B9-94BE3A3FA93F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Application", "LearnChess.Application\LearnChess.Application.csproj", "{9B140761-B3EE-4F2C-8752-77030A9141DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnChess.Application", "LearnChess.Application\LearnChess.Application.csproj", "{9B140761-B3EE-4F2C-8752-77030A9141DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Abstractions", "LearnChess.Abstractions\LearnChess.Abstractions.csproj", "{0AF66AAA-674B-4FE4-828B-53D4C780170D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnChess.Application.UnitTests", "LearnChess.Application.UnitTests\LearnChess.Application.UnitTests.csproj", "{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Application.UnitTests", "LearnChess.Application.UnitTests\LearnChess.Application.UnitTests.csproj", "{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnChess.Web.IntegrationTests", "LearnChess.Web.IntegrationTests\LearnChess.Web.IntegrationTests.csproj", "{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnChess.Web.IntegrationTests", "LearnChess.Web.IntegrationTests\LearnChess.Web.IntegrationTests.csproj", "{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +25,6 @@ Global
 		{9B140761-B3EE-4F2C-8752-77030A9141DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B140761-B3EE-4F2C-8752-77030A9141DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B140761-B3EE-4F2C-8752-77030A9141DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AF66AAA-674B-4FE4-828B-53D4C780170D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AF66AAA-674B-4FE4-828B-53D4C780170D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AF66AAA-674B-4FE4-828B-53D4C780170D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AF66AAA-674B-4FE4-828B-53D4C780170D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C0C25D7-85BB-4CF5-AF7A-1DDA9692A60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,5 +33,11 @@ Global
 		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E0A0F5-E2BD-4572-8DDC-0DD709148165}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9315790-DC7F-498B-8C75-86604419B4A6}
 	EndGlobalSection
 EndGlobal
