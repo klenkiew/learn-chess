@@ -4,7 +4,7 @@
   font-size: 4rem;
   position: relative;
 
-  i {
+  span {
     font-size:1em;
     line-height:1em;
     -ms-user-select: none;
@@ -21,11 +21,11 @@
     }
   }
 
-  &:hover i.hover-visible {
+  &:hover span.hover-visible {
     display: inline;
   }
 
-  &:hover i.hover-fade {
+  &:hover span.hover-fade {
     opacity: 0.2;
   }
 

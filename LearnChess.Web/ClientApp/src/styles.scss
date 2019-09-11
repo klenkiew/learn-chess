@@ -3,6 +3,10 @@
 html {
   font-size: 12px;
 
+  @media screen and (max-width: 430px) {
+    font-size: calc(12vw / 430 * 100);
+  }
+
   @media screen and (min-width: 992px) {
     font-size: 14px;
   }
