@@ -8,13 +8,15 @@ namespace LearnChess.Web.IntegrationTests.LearnChess
 {
     public class ValidateMoveIntegrationTest : IntegrationTestBase
     {
+        private const string Url = "api/learnChess/validateMove";
+
         [Test]
         public async Task TestForValidMove()
         {
             var request = new ValidateChessPieceMoveRequest(
                 ChessPieceKind.Knight, new ChessboardPositionDto(4, 4), new ChessboardPositionDto(6, 5));
             
-            var result = await Post<ValidateChessPieceMoveResponse>("learnChess/validateMove", request);
+            var result = await Post<ValidateChessPieceMoveResponse>(Url, request);
 
             Assert.That(result, Is.EqualTo(ValidateChessPieceMoveResponse.ValidMove));
         }
@@ -25,7 +27,7 @@ namespace LearnChess.Web.IntegrationTests.LearnChess
             var request = new ValidateChessPieceMoveRequest(
                 ChessPieceKind.Knight, new ChessboardPositionDto(4, 4), new ChessboardPositionDto(6, 4));
             
-            var result = await Post<ValidateChessPieceMoveResponse>("learnChess/validateMove", request);
+            var result = await Post<ValidateChessPieceMoveResponse>(Url, request);
 
             Assert.That(result, Is.EqualTo(ValidateChessPieceMoveResponse.InvalidMove));
         }

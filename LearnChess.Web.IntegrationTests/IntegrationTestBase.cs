@@ -17,7 +17,8 @@ namespace LearnChess.Web.IntegrationTests
         [SetUp]
         public void Setup()
         {
-            factory = new WebApplicationFactory<Startup>();
+            factory = new WebApplicationFactory<Startup>()
+                .WithWebHostBuilder(builder => builder.UseSetting("BackendOnly", "true"));
         }
 
         protected async Task<T> Get<T>(string url, IDictionary<string, string> queryParams = null)

@@ -50,7 +50,7 @@ namespace LearnChess.Application.UnitTests.Helpers
                 for (var j = 0; j < fields[i].Length; j++)
                 {
                     if (fields[i][j] == chessboardFieldState)
-                        return new ChessboardPositionDto(j + 1, i + 1);
+                        return new ChessboardPositionDto(j, i);
                 }
             }
             throw new Exception($"No position with state {chessboardFieldState} on this chessboard");
@@ -70,10 +70,10 @@ namespace LearnChess.Application.UnitTests.Helpers
                 new[] { _, _, _, _, _, _, _, _},
                 new[] { _, _, _, _, _, _, _, _}
             };
-            chessboard[currentPosition.Y - 1][currentPosition.X - 1] = C;
+            chessboard[currentPosition.Y][currentPosition.X] = C;
             
             foreach (var targetPosition in targetPositions) 
-                chessboard[targetPosition.Y - 1][targetPosition.X - 1] = A;
+                chessboard[targetPosition.Y][targetPosition.X] = A;
             return new ChessboardState(chessboard);
         }
         

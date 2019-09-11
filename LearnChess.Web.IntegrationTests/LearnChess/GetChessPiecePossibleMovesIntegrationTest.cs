@@ -9,6 +9,8 @@ namespace LearnChess.Web.IntegrationTests.LearnChess
 {
     public class GetChessPiecePossibleMovesIntegrationTest : IntegrationTestBase
     {
+        private const string Url = "api/learnChess/availableMoves";
+
         [Test]
         public async Task ShouldReturnProperMoves()
         {
@@ -19,7 +21,7 @@ namespace LearnChess.Web.IntegrationTests.LearnChess
                 ["chessPieceKind"] = ChessPieceKind.Knight.ToString(),
             };
             
-            var result = await Get<GetChessPiecePossibleMovesResponse>("learnChess/availableMoves", queryParams);
+            var result = await Get<GetChessPiecePossibleMovesResponse>(Url, queryParams);
 
             Assert.That(result.CurrentPosition, Is.EqualTo(new ChessboardPositionDto(4, 4)));
             Assert.That(result.PossibleMoves, Has.One.EqualTo(new ChessboardPositionDto(6, 5)));
