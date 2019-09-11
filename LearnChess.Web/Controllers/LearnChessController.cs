@@ -6,6 +6,7 @@ using LearnChess.Application.Handlers.GetAvailableChessPieces;
 using LearnChess.Application.Handlers.GetChessPiecePossibleMoves;
 using LearnChess.Application.Handlers.ValidateChessPieceMove;
 using LearnChess.Web.Controllers.Responses;
+using LearnChess.Web.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,19 +16,19 @@ namespace LearnChess.Web.Controllers
     public class LearnChessController
     {
         private readonly IMediator mediator;
-        private readonly ChessPiecesViewInfoProvider chessPiecesViewInfoProvider;
+        private readonly ChessPiecesViewInfoSource chessPiecesViewInfoSource;
 
-        public LearnChessController(IMediator mediator, ChessPiecesViewInfoProvider chessPiecesViewInfoProvider)
+        public LearnChessController(IMediator mediator, ChessPiecesViewInfoSource chessPiecesViewInfoSource)
         {
             this.mediator = mediator;
-            this.chessPiecesViewInfoProvider = chessPiecesViewInfoProvider;
+            this.chessPiecesViewInfoSource = chessPiecesViewInfoSource;
         }
 
         [HttpGet("availableChessPieces")]
         public async Task<IEnumerable<ChessPieceInfo>> GetAvailableChessPieces()
         {
-            return chessPiecesViewInfoProvider.GetViewInfoForPieces((
-                await mediator.Send(new GetAvailableChessPiecesRequest())).Pieces);
+            var chessPieces = (await mediator.Send(new GetAvailableChessPiecesRequest())).Pieces;
+            return chessPiecesViewInfoSource.GetViewInfoForPieces(chessPieces);
         }
         
         [HttpGet("availableMoves")]

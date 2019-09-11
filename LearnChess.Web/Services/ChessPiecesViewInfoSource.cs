@@ -4,9 +4,9 @@ using System.Linq;
 using LearnChess.Application.Domain;
 using LearnChess.Web.Controllers.Responses;
 
-namespace LearnChess.Web.Controllers
+namespace LearnChess.Web.Services
 {
-    public class ChessPiecesViewInfoProvider
+    public class ChessPiecesViewInfoSource
     {
         private readonly IReadOnlyDictionary<ChessPieceKind, ChessPieceInfo> chessPieceViewData =
             new Dictionary<ChessPieceKind, ChessPieceInfo>()
@@ -18,13 +18,13 @@ namespace LearnChess.Web.Controllers
                 [ChessPieceKind.Bishop] = new ChessPieceInfo(ChessPieceKind.Bishop, "Goniec", "&#9821;"),
                 [ChessPieceKind.Pawn] = new ChessPieceInfo(ChessPieceKind.Pawn, "Pion", "&#9823;")
             };
-        
+
         public IEnumerable<ChessPieceInfo> GetViewInfoForPieces(IEnumerable<ChessPieceKind> chessPieces)
         {
             return chessPieces.Select(chessPiece =>
             {
                 if (!chessPieceViewData.TryGetValue(chessPiece, out var enrichedChessPiece))
-                        throw new ArgumentOutOfRangeException(nameof(chessPiece), chessPiece, "Invalid chess piece");
+                    throw new ArgumentOutOfRangeException(nameof(chessPiece), chessPiece, "Invalid chess piece");
                 return enrichedChessPiece;
             });
         }

@@ -1,5 +1,5 @@
 using LearnChess.Application.Domain;
-using LearnChess.Web.Controllers;
+using LearnChess.Web.Services;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +32,7 @@ namespace LearnChess.Web
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
-            services.AddSingleton<ChessPiecesViewInfoProvider>();
+            services.AddSingleton<ChessPiecesViewInfoSource>();
             services.AddSingleton<ChessPieceCollection>();
             services.AddMediatR(typeof(ChessPieceKind).Assembly);
         }
